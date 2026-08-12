@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Daily Flow - Shared Journal</title>
+    <meta name="description" content="A simple, public daily journaling space to share life moments with friends.">
+    
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #111827; /* Gray-900 */
+            --secondary-color: #f3f4f6; /* Gray-100 */
+            --accent-color: #4f46e5; /* Indigo-600 */
+            --bg-color: #fafafa;
+        }
+    }
+    @layer base {
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+    @layer components {
+        .btn-primary {
+            @apply w-full bg-[var(--primary-color)] text-white py-3 px-4 rounded-xl font-medium transition-transform active:scale-95 flex items-center justify-center gap-2;
+        }
+        .btn-secondary {
+            @apply w-full bg-[var(--secondary-color)] text-[var(--primary-color)] py-3 px-4 rounded-xl font-medium transition-transform active:scale-95 flex items-center justify-center gap-2;
+        }
+        .input-field {
+            @apply w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:border-transparent transition-all;
+        }
+    }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <div id="root"></div>
+    <script type="text/babel" src="utils/api.js"></script>
+    <script type="text/babel" src="utils/notifications.js"></script>
+    <script type="text/babel" src="components/Alert.js"></script>
+    <script type="text/babel" src="components/Login.js"></script>
+    <script type="text/babel" src="components/BottomNav.js"></script>
+    <script type="text/babel" src="components/Feed.js"></script>
+    <script type="text/babel" src="components/WriteJournal.js"></script>
+    <script type="text/babel" src="components/ReminderConfig.js"></script>
+    <script type="text/babel" src="app.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCADYT8fs7hDWYDTKoo4Ru0pFbx2gnSqEE",
+        authDomain: "jounalism-144bc.firebaseapp.com",
+        projectId: "jounalism-144bc",
+        storageBucket: "jounalism-144bc.firebasestorage.app",
+        messagingSenderId: "62297417484",
+        appId: "1:62297417484:web:85db9e1e09ef00ff3d4b29",
+        measurementId: "G-3JGLZY1Q9P"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+</body>
+</html>
