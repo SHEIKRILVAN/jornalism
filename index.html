@@ -9,6 +9,8 @@
     <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
     <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,6 +47,21 @@
 </head>
 <body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCADYT8fs7hDWYDTKoo4Ru0pFbx2gnSqEE",
+            authDomain: "jounalism-144bc.firebaseapp.com",
+            projectId: "jounalism-144bc",
+            storageBucket: "jounalism-144bc.firebasestorage.app",
+            messagingSenderId: "62297417484",
+            appId: "1:62297417484:web:85db9e1e09ef00ff3d4b29",
+            measurementId: "G-3JGLZY1Q9P"
+        };
+
+        if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+    </script>
     <script type="text/babel" src="utils/api.js"></script>
     <script type="text/babel" src="utils/notifications.js"></script>
     <script type="text/babel" src="components/Alert.js"></script>

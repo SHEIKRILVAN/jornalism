@@ -36,7 +36,7 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = React.useState(sessionStorage.getItem('is_auth') === 'true');
+    const [isAuthenticated, setIsAuthenticated] = React.useState(false);
     const [currentTab, setCurrentTab] = React.useState('feed');
     const [alertConfig, setAlertConfig] = React.useState({ isOpen: false, title: '', message: '' });
     const [bgImage, setBgImage] = React.useState(localStorage.getItem('journal_bg_image') || '');
@@ -63,7 +63,6 @@ function App() {
     }, [isAuthenticated]);
 
     const handleLogin = () => {
-        sessionStorage.setItem('is_auth', 'true');
         setIsAuthenticated(true);
     };
 
@@ -106,6 +105,7 @@ function App() {
                                 <button 
                                     onClick={() => {
                                         sessionStorage.removeItem('is_auth');
+                                        sessionStorage.removeItem('username');
                                         setIsAuthenticated(false);
                                     }}
                                     className="text-gray-400 hover:text-red-500 p-2 transition-colors"

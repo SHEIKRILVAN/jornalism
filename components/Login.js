@@ -1,6 +1,6 @@
 function Login({ onLogin, showAlert }) {
-    const [username, setUsername] = React.useState('rilwan');
-    const [password, setPassword] = React.useState('123ril123');
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(false);
 
     const handleSubmit = (e) => {
@@ -9,8 +9,13 @@ function Login({ onLogin, showAlert }) {
         
         // Simulate a tiny delay for better UX
         setTimeout(() => {
-            if (username === 'rilwan' && password === '123ril123') {
-                sessionStorage.setItem('username', username);
+            const accounts = {
+                rilwan: '123ril123',
+                kavi: '123kavi123'
+            };
+
+            if (accounts[username.trim()] === password) {
+                sessionStorage.setItem('username', username.trim());
                 onLogin();
             } else {
                 showAlert('Invalid username or password. Please try again.', 'Access Denied');
