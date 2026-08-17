@@ -10,8 +10,7 @@ function Login({ onLogin, showAlert }) {
         // Simulate a tiny delay for better UX
         setTimeout(() => {
             const accounts = {
-                rilwan: '123ril123',
-                kavi: '123kavi123'
+                rilwan: '123ril123'
             };
 
             if (accounts[username.trim()] === password) {
